@@ -10,13 +10,29 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b82a65bc-3af2-4858-896b-4af307615e00" name="Default Changelist" comment="new" />
+    <list default="true" id="b82a65bc-3af2-4858-896b-4af307615e00" name="Default Changelist" comment="new">
+      <change afterPath="$PROJECT_DIR$/Lesson2/task2_les2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Lesson2/task1_les2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lesson2/task1_les2.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1iGu8Opo1VvoZJC22MGuJ3NiR2x" />
@@ -27,6 +43,34 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lesson_2" />
+  </component>
+  <component name="RunManager">
+    <configuration name="task2_les2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Lesson_1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Lesson2" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Lesson2/task2_les2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.task2_les2" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -44,7 +88,14 @@
       <option name="project" value="LOCAL" />
       <updated>1601546167421</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="new">
+      <created>1601547299187</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1601547299187</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -57,6 +108,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new" />
@@ -71,9 +123,29 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="646" y="309" width="615" height="205" key="Github.ShareDialog/0.0.1536.824@0.0.1536.824" timestamp="1601546321819" />
-    <state x="360" y="144" key="Vcs.Push.Dialog.v2" timestamp="1601546180953">
+    <state width="1513" height="210" key="GridCell.Tab.0.bottom" timestamp="1601548956033">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="360" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1601546180953" />
+    <state width="1513" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1601548956033" />
+    <state width="1513" height="210" key="GridCell.Tab.0.center" timestamp="1601548956033">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1513" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1601548956033" />
+    <state width="1513" height="210" key="GridCell.Tab.0.left" timestamp="1601548956033">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1513" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1601548956033" />
+    <state width="1513" height="210" key="GridCell.Tab.0.right" timestamp="1601548956033">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1513" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1601548956033" />
+    <state x="360" y="144" key="Vcs.Push.Dialog.v2" timestamp="1601547306889">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="360" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1601547306889" />
+    <state x="585" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601548574237">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="585" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1601548574237" />
   </component>
 </project>
