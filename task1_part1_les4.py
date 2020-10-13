@@ -86,3 +86,7 @@ def str_numreverse2(n):
 # Вывод - алгоритм с циклом  не имеет ограничений по стеку, однако если нужно
 # "перевернуть" меньшее чем 10**1000 быстрее сего будет работать рекурсия с
 # декоратором @functools.lru_cache()
+
+cProfile.run('str_numreverse(11**100)')
+cProfile.run('str_numreverse1(11**100)')
+cProfile.run('str_numreverse2(11**100)')

@@ -1,4 +1,5 @@
 import functools
+import cProfile
 
 def multiple_num(n):
     """Функция выводит количество чисел из диапазона от 2 до n,
@@ -98,3 +99,8 @@ def multiple_num3(n):
 # функция multiple_num работает примерно в 4 раза быстее чем multiple_num2,
 # однако применение @functools.lru_cache() упрощает сложность данных алгоритмов
 # до О(1), и нивелирует разницу в скорости.
+
+cProfile.run('multiple_num(1500)')
+cProfile.run('multiple_num1(1500)')
+cProfile.run('multiple_num2(1500)')
+cProfile.run('multiple_num3(1500)')
