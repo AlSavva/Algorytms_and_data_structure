@@ -2,6 +2,7 @@
 # нахождения простого числа должна принимать на вход натуральное и возвращать
 # соответствующее простое число. Проанализировать скорость и сложность
 # алгоритмов.
+import cProfile
 
 
 def erat(n):
@@ -85,3 +86,14 @@ def my_simple1(n):
 
 # Алгоритм с дывумя циклами можно модифицировать, приблизив его к линейной
 # зависимости О(n) путем вложения второго цикла в условный оператор.
+
+# cProfile.run('erat(1000)')
+# 6 function calls in 0.000 seconds
+
+# cProfile.run('my_simple(1000)')
+# 172 function calls in 0.005 seconds
+# 168    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}
+
+# cProfile.run('my_simple1(1000)')
+# 171 function calls in 0.000 seconds
+# 167    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}
