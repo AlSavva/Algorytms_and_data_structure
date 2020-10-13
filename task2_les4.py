@@ -6,6 +6,18 @@ import cProfile
 
 
 def erat(n):
+    pi_func = {4: 10,
+               25: 10 ** 2,
+               168: 10 ** 3,
+               1129: 10 ** 4,
+               9592: 10 ** 5,
+               78498: 10 ** 6,
+               664579: 10 ** 7,
+               5761455: 10 ** 8
+               }  # и-функция - количество простых чисел в заданном интервале
+    for i in range(len(pi_func)):
+        if n > key[i]:
+            size = pi_func[key[i - 1]]
     sieve = [i for i in range(n)]
     sieve[1] = 0
     for i in range(2, n):
