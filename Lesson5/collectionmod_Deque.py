@@ -75,7 +75,3 @@ print('*' * 50)
 with open('big_log.txt', 'r', encoding='utf-8') as infile:
     last_ten = deque(infile, 10)
 print(last_ten)
-
-
-
-
