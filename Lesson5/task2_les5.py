@@ -7,7 +7,7 @@
 from collections import OrderedDict, deque
 
 stg = '0123456789ABCDEF'
-my_dict = {}
+my_dict = OrderedDict()
 for i in range(16):
     my_dict[stg[i]] = i
 
@@ -19,7 +19,7 @@ def in_hex(num):
             if value == num % 16:
                 res.appendleft(key)
         num //= 16
-    return res
+    return list(res)
 
 
 def in_dec(lst):
