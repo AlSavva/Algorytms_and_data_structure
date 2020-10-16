@@ -36,10 +36,9 @@ print(y)
 print(y['a'])
 y['a'] = 1
 print(y)
-print(list(y))
-print(list(y.values()))
-print(list(y.maps[1]))
-print(list(y.maps[1].values()))
+print(list(y)) # получаем список ключей коллекции
+print(list(y.values())) # получаем список значений коллекции
+print(list(y.maps[1])) # получаем список ключей элемента коллекции
+print(list(y.maps[1].values())) # получаем список значений элемента коллекции
 
 print('*' * 50)
-
