@@ -119,7 +119,6 @@ print(sum(tot_size(el) for el in (mymatr, a, check, mincol, i, j)))
 # выделено 1500 байт памяти под переменные
 
 # Вариант3:
-from random import randint
 
 M = 5
 N = 4
