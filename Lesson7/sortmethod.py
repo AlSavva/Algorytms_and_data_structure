@@ -10,9 +10,9 @@ import random
 
 def randarray(size):
     """
-    Возвращает массив из size элементов от 0 до size в произвольном порядке
+    Возвращает массив из size элементов от 0 до size - 1 в произвольном порядке
     """
-    array = [i for i in range(size + 1)]
+    array = [i for i in range(size)]
     random.shuffle(array)
     return array
 
@@ -280,6 +280,63 @@ def timSort(arr):
         size = 2 * size
 
 
+# Сортировка слиянием(Mergesort):
+# Сложность: O(n * log n) среднее время.
+# Тип: Слиянием
+# Потребление памяти: O(n)
+
+def merge1(left_list, right_list):
+    sorted_list = []
+    left_list_index = right_list_index = 0
+
+    # Длина списков часто используется, поэтому создадим переменные для удобства
+    left_list_length, right_list_length = len(left_list), len(right_list)
+
+    for _ in range(left_list_length + right_list_length):
+        if left_list_index < left_list_length and right_list_index < right_list_length:
+            # Сравниваем первые элементы в начале каждого списка
+            # Если первый элемент левого подсписка меньше, добавляем его
+            # в отсортированный массив
+            if left_list[left_list_index] <= right_list[right_list_index]:
+                sorted_list.append(left_list[left_list_index])
+                left_list_index += 1
+            # Если первый элемент правого подсписка меньше, добавляем его
+            # в отсортированный массив
+            else:
+                sorted_list.append(right_list[right_list_index])
+                right_list_index += 1
+
+        # Если достигнут конец левого списка, элементы правого списка
+        # добавляем в конец результирующего списка
+        elif left_list_index == left_list_length:
+            sorted_list.append(right_list[right_list_index])
+            right_list_index += 1
+        # Если достигнут конец правого списка, элементы левого списка
+        # добавляем в отсортированный массив
+        elif right_list_index == right_list_length:
+            sorted_list.append(left_list[left_list_index])
+            left_list_index += 1
+
+    return sorted_list
+
+
+def merge_sort(nums):
+    # Возвращаем список, если он состоит из одного элемента
+    if len(nums) <= 1:
+        return nums
+
+    # Для того чтобы найти середину списка, используем деление без остатка
+    # Индексы должны быть integer
+    mid = len(nums) // 2
+
+    # Сортируем и объединяем подсписки
+    left_list = merge_sort(nums[:mid])
+    right_list = merge_sort(nums[mid:])
+
+    # Объединяем отсортированные списки в результирующий
+    return merge1(left_list, right_list)
+
+
 # Сортировка сложных структур с использованием ключа(пример):
 # Создадим несколько персонажей, и отсортируем их(например по имени)
 from collections import namedtuple
@@ -322,7 +379,6 @@ from operator import attrgetter
 
 result4 = sorted(people, key=attrgetter('age'))
 print(result4)
-
 
 # a = full_randarray(0, 10, 10)
 # print(a)
