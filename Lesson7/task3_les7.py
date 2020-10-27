@@ -17,13 +17,18 @@ def full_randarray(x, y, size):
     random.shuffle(array)
     return array
 
-def median_search(array):
-    if len(array) == 1:
-        return array[0]
-    else:
-        array.remove(max(array))
-        array.remove(min(array))
-        return median_search(array)
-b = full_randarray(0, 9, 9)
-print(b)
-print(median_search(b))
+
+def median_search(lst):
+    while len(lst) != 1:
+        lst.remove(max(lst))
+        lst.remove(min(lst))
+    return lst[0]
+
+
+n = int(input('Для создания массива длинной 2m + 1 элемент введите m: '))
+b = full_randarray(0, 20, n * 2 + 1)
+print(f'Создан массив из {n * 2 + 1} элементов:\n{b}')
+c = sorted(b)
+print(f'Для наглядности массив был отсортирован:\n{c}')
+a = median_search(b)
+print(f'Медиана массива: {a}')
