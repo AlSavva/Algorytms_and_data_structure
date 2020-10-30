@@ -20,8 +20,6 @@ def gen_graph(n):
         while sum(el) < 2:
             el = [randint(0, 1) for _ in range(n)]
         graph.append(el)
-    print(*graph, sep='\n')
-    print('*' * 20)
     for j in range(n):
         for i in range(n):
             if i == j and graph[i][j] == 1:
