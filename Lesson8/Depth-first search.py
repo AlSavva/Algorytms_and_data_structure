@@ -17,27 +17,23 @@
 # 2 Запустить из этой вершины алгоритм обхода в глубину
 # 3 Вернуться в начальную вершину.
 # 4 Повторить пункты 1-3 для всех не посещенных ранее смежных вершин.
-graph = [
-    [0, 1, 1, 0, 1, 0, 0, 0],
-    [1, 0, 0, 0, 0, 0, 0, 0],
-    [1, 0, 0, 0, 1, 0, 0, 0],
-    [0, 0, 0, 0, 0, 1, 0, 0],
-    [1, 0, 1, 0, 0, 0, 1, 0],
-    [0, 0, 0, 1, 0, 0, 1, 1],
-    [0, 0, 0, 0, 1, 1, 0, 1],
-    [0, 0, 0, 0, 0, 1, 1, 0]
-]
 
+graph = {
+    0: {1, 4},
+    1: {2, 3, 4},
+    2: {0, 1, 3, 4},
+    3: {1, 2},
+    4: {1, 2}
+}
 
-def dfs(graph, start, visited=False, prev=None):
-    if not visited and prev == None:
-        visited = [False] * (n + 1)
-        prev = [None] * (n + 1)
-    visited[start] = True
-    for u in graph[start]:
-        if not visited[u]:
-            prev[u] = start
-            dfs(u)
+def dfs(graph, start, visited=None):
+    if visited is None:
+        visited = set()
+    visited.add(start)
+    print(start)
+    for next in graph[start] - visited:
+        dfs(graph, next, visited)
+    return visited
     # visited = set()
     # rout = []
     # visited.add(start)

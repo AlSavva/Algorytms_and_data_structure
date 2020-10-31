@@ -27,7 +27,7 @@ def gen_graph(n):
                 graph[i].insert(j, 0)
                 graph[i].pop()
     print(*graph, sep='\n')
-    print('*'*50)
+    print('*' * 50)
     for i in range(len(graph)):
         adj_list[i] = set()
         for idx, vol in enumerate(graph[i]):
@@ -36,5 +36,17 @@ def gen_graph(n):
     return adj_list
 
 
+def dfs(graph, start, visited=None):
+    if visited is None:
+        visited = set()
+    visited.add(start)
+    print(start)
+    for next in graph[start] - visited:
+        dfs(graph, next, visited)
+    return visited
+
+
 num = int(input())
-print(gen_graph(num))
+graph = gen_graph(num)
+print(graph)
+print(dfs(graph, 0))
