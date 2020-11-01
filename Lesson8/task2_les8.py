@@ -15,6 +15,7 @@ graph1 = [
 
 def adj_lst(graph):
     """
+    Функция трансформирует матрицу смежности графа в лист смежности
     :param graph:adjacency matrix of weighted directed graph
     :return:adjacency list of same graph
     """
@@ -29,43 +30,45 @@ def adj_lst(graph):
 
 def dijkstra(graph, start):
     """
-    :param graph:graph matrix
+    Реализация алгоритма Дейкстры, для работы со списком смежности
+    :param graph:graph adjacency list
     :param start:start vertex
-    :return:short cut from start to any vertex
+    # :return:short cut from start to any vertex
     """
     length = len(graph)
     is_visited = []
-    # изначально обозначим стоимость пути до любой точки как беcконечность
     costs = {i: float('inf') for i in range(length)}
     parents = {i: None for i in range(length)}
     costs[start] = 0
 
-    # is_visited.append(start)
-    def find_low_cost(costs):
+    def find_min_cost(costs):
+        """
+        Функция ищет вершину с наименьшей стоимостью достижения
+        """
         min_cost = float('inf')
-        min_cost_node = None
-        for node in costs:
-            cost = costs[node]
-            if cost < min_cost and node not in is_visited:
+        min_cost_vertex = None
+        for vertex in costs:
+            cost = costs[vertex]
+            if cost < min_cost and vertex not in is_visited:
                 min_cost = cost
-                min_cost_node = node
-        return min_cost_node
+                min_cost_vertex = vertex
+        return min_cost_vertex
 
-    node = find_low_cost(costs)
-    way = {i: [0] for i in range(length)}
-    while node is not None:
-        cost = costs[node]
-        neigh = graph[node]
-        for n in neigh.keys():
-            new_cost = cost + neigh[n]
+    vertex = find_min_cost(costs)
+    while vertex is not None:
+        cost = costs[vertex]
+        neighbor = graph[vertex]
+        for n in neighbor.keys():
+            new_cost = cost + neighbor[n]
             if costs[n] > new_cost:
                 costs[n] = new_cost
-                parents[n] = node
-        is_visited.append(node)
-        node = find_low_cost(costs)
+                parents[n] = vertex
+        is_visited.append(vertex)
+        vertex = find_min_cost(costs)
+    # доработка, для вывода самого дешегого пути для любой вершины при обходе
+    # графа
     way = {i: [] for i in range(length)}
-    coopy = parents.copy()
-    for key, value in coopy.items():
+    for key, value in parents.items():
         if value is None:
             if key == start:
                 way[key].append(start)
@@ -75,26 +78,12 @@ def dijkstra(graph, start):
             way[key].insert(0, key)
             while value != start:
                 way[key].insert(0, value)
-                value = coopy[value]
+                value = parents[value]
             way[key].insert(0, start)
 
+    # return costs # возвращает стоимость достижения любой вешины из точки start
+    return way  # Возвращает самый дешевый маршрут до любой вершины из точки start
 
-    return f'{parents}\n{costs}\n{way}'
-
-    # cost[start] = 0
-    # while min_cost < float('inf'):
-    #     is_visited[start] = True
-    #     for i, vertex in enumerate(graph[start]):
-    #         if vertex != 0 and not is_visited[i]:
-    #             if cost[i] > vertex + cost[start]:
-    #                 cost[i] = vertex + cost[start]
-    #                 parent[i] = start
-    #     min_cost = float('inf')
-    #     for i in range(length):
-    #         if min_cost > cost[i] and not is_visited[i]:
-    #             min_cost = cost[i]
-    #             start = i
-    # return cost
 
 
 s = int(input('Enter start vertex: '))
