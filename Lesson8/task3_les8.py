@@ -35,15 +35,17 @@ def gen_graph(n):
                 adj_list[i].add(idx)
     return adj_list
 
-
 def dfs(graph, start, visited=None):
     if visited is None:
         visited = set()
     visited.add(start)
     print(start)
-    for next in graph[start] - visited:
-        dfs(graph, next, visited)
-    return visited
+    if not graph[start] - visited:
+        print('*'*3)
+    else:
+        for next in graph[start] - visited:
+            dfs(graph, next, visited)
+        return visited
 
 
 num = int(input())
