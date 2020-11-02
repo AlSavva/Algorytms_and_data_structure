@@ -5,47 +5,43 @@
 # a. граф должен храниться в виде списка смежности;
 # b. генерация графа выполняется в отдельной функции, которая принимает на вход
 # число вершин.
-from random import randint
+import random
 
 
-def gen_graph(n):
+def gen_graph(vertex):
     """
-    :param n: numbers of vertex in unweighted directed graph
-    :return: adjacency matrix
+    Функция генерирует направленный связанный граф без петель в виде списка
+    смежности
+    :param vertex: number of vertex
+    :return:adjacency list
     """
-    assert n >= 2, 'uncorrect n! n >= 2'
-    graph = []
-    adj_list = {}
-    for i in range(n):
-        el = [randint(0, 1) for _ in range(n)]
-        while sum(el) < 2:
-            el = [randint(0, 1) for _ in range(n)]
-        graph.append(el)
-    for j in range(n):
-        for i in range(n):
-            if i == j and graph[i][j] == 1:
-                graph[i].insert(j, 0)
-                graph[i].pop()
-    print(*graph, sep='\n')
-    print('*' * 50)
-    for i in range(len(graph)):
-        adj_list[i] = set()
-        for idx, vol in enumerate(graph[i]):
-            if vol == 1:
-                adj_list[i].add(idx)
-    return adj_list
+    graph = {}
+    for i in range(vertex):
+        edges = []
+        while len(
+                edges) < 2:  # обеспечиваем минимум 2 ребра при каждой вершине
+            edges = random.choices(list(range(vertex)),
+                                   k=random.randint(2, vertex - 1))
+            edges = set(edges)
+            edges.discard(i)  # обеспечиваем отсутствие петель
+        graph[i] = edges
+    return graph
 
-def dfs(graph, start, visited=None):
+vislst = []
+def dfs(graph, start, visited=None, count=1):
+    global  dct
+    dct={}
+
     if visited is None:
         visited = set()
     visited.add(start)
+    dct[start] = visited
     print(start)
     if not graph[start] - visited:
-        print('*'*3)
-    else:
-        for next in graph[start] - visited:
-            dfs(graph, next, visited)
-        return visited
+        print('************')
+    for next in graph[start] - visited:
+        dfs(graph, next, visited, count=1)
+    return dct
 
 
 num = int(input())
