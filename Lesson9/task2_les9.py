@@ -17,45 +17,48 @@ def huffman_code(string):
         freq2, _count2, right = heapq.heappop(fdeq)
         heapq.heappush(fdeq, (freq1 + freq2, count, Node(left, right)))
         count += 1
-    root = fdeq[0][2]
-    return root
+        print(fdeq)
+    [(_freq, _count, root)]=fdeq
+    code = {}
+    path = ''
 
-
-code = {}
-path = ''
-
-
-def bts(root):
-    global path
-    if isinstance(root.left, Leaf):
-        path += '0'
-        code[root.left.symbol] = path + '0'
-
-    else:
-        # path += '0'
-        bts(root.left)
-    if isinstance(root.right, Leaf):
-        path += '1'
-        code[root.right.symbol] = path + '1'
-
-    else:
-        # path += '1'
-        bts(root.right)
-    # if not isinstance(root.left, Leaf):
-    #     bts(root.left)
-    # if not isinstance(root.right, Leaf):
-    #     bts(root.right)
+    def bts(fdeq):
+        global path
+        if isinstance(fdeq, Leaf):
+            code[fdeq.symbol] = path
+        else:
+            if isinstance(fdeq.left, Node):
+                path += '0'
+                bts(fdeq.left)
+            if isinstance(fdeq.right, Node):
+                path += '1'
+                bts(fdeq.right)
+        print(code)
     return code
 
 
-# print(fdeq[0][1])
-# return fdeq
+
+
+
+
+
+
+
+
+
+
 
 s = 'beep boop beer!'
+a=Counter(s)
+print(a)
 m = huffman_code(s)
-n = Node(left=Node(left=Leaf(symbol='b'), right=Node(left=Leaf(symbol='o'), right=Leaf(symbol=' '))),
-         right=Node(left=Node(left=Node(left=Leaf(symbol='r'), right=Leaf(symbol='!')), right=Leaf(symbol='p')), right=Leaf(symbol='e')))
 print(m)
-print(n)
-print(bts(n))
-print(bts(m))
+# print(n)
+# print(bts(n))
+# print(bts(m))
+
+k=Node(left=Node(left=Leaf(symbol='b'),right=Node(left=Leaf(symbol='o'), right=Leaf(symbol=' '))),
+     right=Node(left=Node(left=Node(left=Leaf(symbol='r'),right=Leaf(symbol='!')), right=Leaf(symbol='p')),
+     right=Leaf(symbol='e')))
+print(type(k))
+print(huffman_code(k))
