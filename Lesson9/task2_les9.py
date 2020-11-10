@@ -2,10 +2,19 @@
 from collections import Counter, namedtuple
 
 Leaf = namedtuple('Leaf', ['symb'])
+"""
+определяем класс Leaf - для обозначения листьев бинарного дерева.
+"""
 
 
 def huffman_coding(string):
+    """
+    функция кодирования по алгоритму Хаффмана
+    """
     def bts(lst, path=None, code=None):
+        """
+        рекурсивный подсчет пути по бинарному дереву
+        """
         if path is None:
             path = ''
         if code is None:
@@ -19,10 +28,9 @@ def huffman_coding(string):
                 bts(lst[i], path + str(i), code)
         return code
 
-    con = Counter(string)
     deq = []
-    for key, values in con.items():
-        deq.append([int(values), Leaf(key)])
+    for symbol, frequency, in Counter(string).items():
+        deq.append([frequency, Leaf(symbol)])
     deq = sorted(deq)
     while len(deq) > 1:
         freq1, node1 = deq.pop(0)
@@ -40,30 +48,3 @@ def huffman_coding(string):
 
 s = 'beep boop beer!'
 print(huffman_coding(s))
-
-
-
-
-
-
-
-
-
-
-
-
-
-s = 'beep boop beer!'
-a=Counter(s)
-print(a)
-m = huffman_code(s)
-print(m)
-# print(n)
-# print(bts(n))
-# print(bts(m))
-
-k=Node(left=Node(left=Leaf(symbol='b'),right=Node(left=Leaf(symbol='o'), right=Leaf(symbol=' '))),
-     right=Node(left=Node(left=Node(left=Leaf(symbol='r'),right=Leaf(symbol='!')), right=Leaf(symbol='p')),
-     right=Leaf(symbol='e')))
-print(type(k))
-print(bts(k))
