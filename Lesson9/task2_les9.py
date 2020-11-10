@@ -3,17 +3,17 @@ from collections import Counter, namedtuple
 
 Leaf = namedtuple('Leaf', ['symb'])
 """
-определяем класс Leaf - для обозначения листьев бинарного дерева.
+defining the Leaf class-to denote the leaves of a binary tree.
 """
 
 
 def huffman_coding(string):
     """
-    функция кодирования по алгоритму Хаффмана
+    coding function for the Huffman algorithm
     """
     def bts(lst, path=None, code=None):
         """
-        рекурсивный подсчет пути по бинарному дереву
+        recursive path search in a binary tree
         """
         if path is None:
             path = ''
